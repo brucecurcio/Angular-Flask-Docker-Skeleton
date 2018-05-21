@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EscalationService } from '../escalation.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Casenum } from '../casenum';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +11,8 @@ import { EscalationService } from '../escalation.service';
 
 export class HomeComponent implements OnInit {
 
- 
-  constructor(private escalationService: EscalationService) { }
-
+  constructor(private escalationService: EscalationService){}
+  
   ngOnInit() {
   }
 
@@ -23,5 +24,19 @@ export class HomeComponent implements OnInit {
     if (!casenum){return}
     this.escalationService.triggerEscPol(casenum).subscribe(data => console.log(data));
   }
+
+  model = new Casenum("");
+
+  submitted = false;
+
+  onSubmit(casenumObj: Casenum) { 
+    console.log(casenumObj.casenum);
+
+    this.submitted = true; 
+  }
+
+  // TODO: Remove this when done
+  get diagnostic() { return JSON.stringify(this.model); }
+
 }
 

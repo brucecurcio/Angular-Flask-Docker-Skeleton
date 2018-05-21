@@ -2,16 +2,14 @@
 </div>
 <div class="container color-light">
   <div class="col">
-    <form>
-      <label> Case Number:
-        <input #caseNum />
-      </label>
-      <!--  <button (click)="getEscPol(); caseNum.value=''">
-        get policy
-      </button>-->
-      <button (click)="triggerEscPol(caseNum.value); caseNum.value=''">
-        escalation
-      </button>
+    <form (ngSubmit)="onSubmit(casenum)" #casenumForm="ngForm">
+      <div class="form group">
+        <label for="casenum">Case Number: </label>
+        <input type="text" class="form-control" id="casenum" required [(ngModel)]="model.casenum" name="casenum" #casenum="ngModel">
+        <div [hidden]="casenum.valid" class="alert alert-danger">
+        </div>
+      </div>
+      <button type="submit" class="btn bnt-success" [disabled]="!casenumForm.form.valid">Escalate</button>
     </form>
   </div>
 </div>
