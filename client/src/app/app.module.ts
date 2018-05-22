@@ -7,7 +7,17 @@ import { HomeComponent } from './home/home.component';
 import { SupportApiComponent } from './support-api/support-api.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { 
+  MatTooltipModule, 
+  MatMenuModule, 
+  MatButtonModule, 
+  MatCheckboxModule, 
+  MatIconModule,
+  MatProgressSpinnerModule,
+  MatToolbarModule, 
+  MatGridListModule,
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,6 +31,15 @@ import { MessagesComponent } from './messages/messages.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatMenuModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

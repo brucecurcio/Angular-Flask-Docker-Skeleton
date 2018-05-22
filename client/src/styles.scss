@@ -2,6 +2,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
 
+h1 {
+    margin:0 auto;
+    width:0 auto;
+    color: white;
+}
+
 body {
     background:#2E9CE6;
     padding: 3em;
@@ -24,3 +30,8 @@ a {
     color:#fff;
     text-decoration:none;
 }
+img {
+    width: 50%;
+    height: auto;
+}
+
