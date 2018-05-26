@@ -87,7 +87,7 @@ class Esc_Trigger(Resource):
         payload = {
             "incident": {
                 "type": "incident",
-                "title": "This is a field escalation.  The case number is:" + caseNum + "description: " + summary,
+                "title": "This is a field escalation.  The case number is:" + caseNum, 
                 "service": {
                     "id": "PVGDAR3",
                     "type": "service_reference"
@@ -96,8 +96,8 @@ class Esc_Trigger(Resource):
                     "id": "PLW05MG",
                     "type": "escalation_policy_reference"
                 }
-            }
-        }
+            } 
+        } 
 
         r = requests.post(url, headers=headers, data=json.dumps(payload))
         return r.json()
