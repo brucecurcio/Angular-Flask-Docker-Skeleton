@@ -64,9 +64,9 @@ class Field_Escalate(Resource):
         r = requests.get(url, headers=headers)
         return r.json()
 
-@api.route('/esc_trigger/<casenum>')
+@api.route('/esc_trigger/<casenum>/<summary>')
 class Esc_Trigger(Resource):
-    def post(self, casenum):
+    def post(self, casenum, summary):
         API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
         FROM = 'TSE@IB.COM'
 
@@ -87,7 +87,7 @@ class Esc_Trigger(Resource):
         payload = {
             "incident": {
                 "type": "incident",
-                "title": "This is a field escalation.  The case number is:" + caseNum,
+                "title": "This is a field escalation.  The case number is:" + caseNum + "description:" + summary,
                 "service": {
                     "id": "PVGDAR3",
                     "type": "service_reference"
