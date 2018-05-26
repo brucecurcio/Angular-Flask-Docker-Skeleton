@@ -18,8 +18,8 @@ export class DashComponent implements OnInit {
     { title: 'TBD', cols: 2, rows: 1 }
   ];
 
-  triggerEscPol(casenum: string): void {
-    if (!casenum){return}
-    this.escalationService.triggerEscPol(casenum).subscribe(data => console.log(data));
+  triggerEscPol(casenum: string, summary: string): void {
+    if (!casenum || !summary){return}
+    this.escalationService.triggerEscPol(casenum, summary).subscribe(data => console.log(data));
   }
 }

@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class EscalationService {
 
-  private apiUrl = 'http://104.236.235.98/api/'; 
+  private apiUrl = 'http://localhost/api/'; 
 
   constructor(
     private http: HttpClient,
@@ -27,8 +27,8 @@ export class EscalationService {
     );
   }
   
-  triggerEscPol (casenum: string) {
-    let url: string  = this.apiUrl + "/esc_trigger/" + casenum;
+  triggerEscPol (casenum: string, summary: string) {
+    let url: string  = this.apiUrl + "/esc_trigger/" + casenum + "/" + summary;
     return this.http.post(url, httpOptions)
     .pipe(
       tap(data => this.log('triggered escalation policy')),
