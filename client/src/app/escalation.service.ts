@@ -32,7 +32,7 @@ export class EscalationService {
     return this.http.post(url, httpOptions)
     .pipe(
       tap(data => this.log('Escalation Successful')),
-      catchError(this.handleError('[Escalation Failed, please try again]', []))
+      catchError(this.handleError('Escalation Failed, please try again.', []))
     );
   }
       
@@ -49,7 +49,7 @@ export class EscalationService {
       console.log(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+      this.log(`${operation}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
