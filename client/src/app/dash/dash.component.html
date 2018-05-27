@@ -14,9 +14,10 @@
           </div>
           <div class=a>
             <textarea matInput rows="7" placeholder="Brief Summary" #summary></textarea>
+            <app-message></app-message>
           </div>
           <div class=b>
-                <button mat-raised-button (click)="triggerEscPol(caseNum.value, summary.value); caseNum.value=''; summary.value=''">Escalate</button>
+            <button mat-raised-button (click)="triggerEscPol(caseNum.value, summary.value); caseNum.value=''; summary.value=''">Escalate</button>                
           </div>
         </mat-card-content>
       </mat-card>

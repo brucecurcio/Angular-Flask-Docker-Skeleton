@@ -12,6 +12,7 @@ import { DashComponent } from './dash/dash.component';
 import { Navbar2Component } from './navbar2/navbar2.component';
 import { EscalationFormComponent } from './escalation-form/escalation-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     DashComponent,
     Navbar2Component,
     EscalationFormComponent,
+    MessageComponent,
   ],
 
   imports: [
