@@ -31,7 +31,7 @@ export class EscalationService {
     let url: string  = this.apiUrl + "esc_trigger/" + casenum + "/" + summary;
     return this.http.post(url, httpOptions)
     .pipe(
-      tap(data => this.log('Escalation Successful')),
+      tap(data => this.log('Escalation Successful\n')),
       catchError(this.handleError('[Escalation Failed, please try again]', []))
     );
   }
@@ -58,6 +58,6 @@ export class EscalationService {
 
   /** Log a EscalationService message with the MessageService */
   private log(message: string) {
-    this.messageService.add('ERROR: ' + message);
+    this.messageService.add('MESSAGE: ' + message);
   }
 }
