@@ -8,39 +8,7 @@ import re
 app = Flask(__name__) #instantiate flask app
 api = Api(app) #instantiate api
 
-"""
-class TheLanguage(object):
-    def __init__(self, language, framework):
-        self.language = language
-        self.framework = framework
-
-    def __repr__(self):
-        return '{} is the language. {} is the framework.'.format(self.language, self.framework)
-
-class LanguageSchema(Schema):
-    language = ma_fields.String()
-    framework = ma_fields.String()
-
-    @post_load
-    def create_language(self, data):
-        return TheLanguage(**data)
-
-#this is duplicated to ensure swagger picks up data correctly. Duplicates info in LanguageSchema
-a_language = api.model('Language', {'language': fields.String('The language'), 'framework': fields.String('The Framework')}) #, 'id': fields.Integer('ID')})
-
-
-languages = []
-#python = {'language': 'Python', 'id': 1}
-python = TheLanguage(language='Python', framework='Flask')
-languages.append(python)
-"""
-
-@api.route('/test')
-class Test(Resource):
-    def get(self):
-        return requests.get('http://api.openweathermap.org/data/2.5/weather?q=Portland,us&appid=6d48c4262115fcf9f8a9d608fbe4288b').json()
-
-@api.route('/field_escalate')
+@api.route('/escalation_policies')
 class Field_Escalate(Resource):
     def get(self):
         API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
@@ -87,9 +55,9 @@ class Esc_Trigger(Resource):
         payload = {
             "incident": {
                 "type": "incident",
-                "title": "This is a field escalation.  The case number is:" + caseNum, 
+                "title": "Case# " + caseNum + summary, 
                 "service": {
-                    "id": "PVGDAR3",
+                    "id": "PD8LF40",
                     "type": "service_reference"
                 },
                 "escalation_policy": {
