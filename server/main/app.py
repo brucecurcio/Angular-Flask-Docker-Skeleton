@@ -55,7 +55,7 @@ class Esc_Trigger(Resource):
         payload = {
             "incident": {
                 "type": "incident",
-                "title": "Case# " + caseNum + summary, 
+                "title": "Case: " + caseNum + ", " + summary, 
                 "service": {
                     "id": "PD8LF40",
                     "type": "service_reference"
