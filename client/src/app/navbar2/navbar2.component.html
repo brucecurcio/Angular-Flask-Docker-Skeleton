@@ -8,9 +8,10 @@
     [opened]="false">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list color="white">
-      <a mat-list-item routerLink="/">Home</a>
-  <!--    <a mat-list-item routerLink="logs">Logs</a> -->
-  <!--    <a mat-list-item routerLink="esc-intake-form">Esc In-take Form</a> -->
+      <a mat-list-item routerLink="/">Dashboard</a>
+      <a mat-list-item routerLink="FieldEscalation">Field Escalation</a>
+      <a mat-list-item routerLink="Schedule">QM/SL/STBY Schedule</a> 
+      <a mat-list-item routerLink="DropQM">Drop QM</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,7 +24,11 @@
         >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Support CMD</span>
+      <span>
+        <a href="http://www.infoblox.com" target="_blank">
+          <img src="assets/logo2.png">
+        </a>
+      </span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

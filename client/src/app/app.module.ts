@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageComponent } from './message/message.component';
 import { LogsComponent } from './logs/logs.component';
 import { EscIntakeFormComponent } from './esc-intake-form/esc-intake-form.component';
+import { FieldEscalationComponent } from './field-escalation/field-escalation.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { DropQMComponent } from './drop-qm/drop-qm.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { EscIntakeFormComponent } from './esc-intake-form/esc-intake-form.compon
     MessageComponent,
     LogsComponent,
     EscIntakeFormComponent,
+    FieldEscalationComponent,
+    ScheduleComponent,
+    DropQMComponent,
   ],
 
   imports: [

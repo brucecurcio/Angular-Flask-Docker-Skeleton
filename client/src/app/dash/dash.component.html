@@ -22,6 +22,16 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title class="boldText">
+            QM/SL/Standby Schedule
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="assets/Monet manager view1.png">
+      </mat-card>
+    </mat-grid-tile>
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { LogsComponent } from './logs/logs.component';
-import { EscIntakeFormComponent } from './esc-intake-form/esc-intake-form.component';
+import { FieldEscalationComponent } from './field-escalation/field-escalation.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { DropQMComponent } from './drop-qm/drop-qm.component';
 
 const routes: Routes = [
   {
@@ -11,14 +12,17 @@ const routes: Routes = [
   },
   
   {
-    path: "logs",
-    component: LogsComponent
+    path: "FieldEscalation",
+    component: FieldEscalationComponent
   },
   {
-    path: "esc-intake-form",
-    component: EscIntakeFormComponent
+    path: "Schedule",
+    component: ScheduleComponent
   },
-  
+  {
+    path: "DropQM",
+    component: DropQMComponent
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
