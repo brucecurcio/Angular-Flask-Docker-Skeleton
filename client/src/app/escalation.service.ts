@@ -27,12 +27,12 @@ export class EscalationService {
     );
   }
   
-  triggerEscPol (casenum: string) {
-    let url: string  = this.apiUrl + "/esc_trigger/" + casenum;
+  triggerEscPol (casenum: string, summary: string) {
+    let url: string  = this.apiUrl + "esc_trigger/" + casenum + "/" + summary;
     return this.http.post(url, httpOptions)
     .pipe(
-      tap(data => this.log('triggered escalation policy')),
-      catchError(this.handleError('triggerEscPol', []))
+      tap(data => this.log('Escalation Successful')),
+      catchError(this.handleError('Escalation Failed, please try again.', []))
     );
   }
       
@@ -49,7 +49,7 @@ export class EscalationService {
       console.log(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+      this.log(`${operation}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
@@ -58,6 +58,6 @@ export class EscalationService {
 
   /** Log a EscalationService message with the MessageService */
   private log(message: string) {
-    this.messageService.add('EscalationService: ' + message);
+    this.messageService.add('MESSAGE: ' + message);
   }
 }

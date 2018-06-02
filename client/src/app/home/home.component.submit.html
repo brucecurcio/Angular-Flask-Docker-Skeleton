@@ -1,0 +1,15 @@
+<div class="container color-dark">
+</div>
+<div class="container color-light">
+  <div class="col">
+    <form (ngSubmit)="onSubmit()" #casenumForm="ngForm">
+      <div class="form group">
+        <label for="casenum">Case Number: </label>
+        <input type="text" class="form-control" id="casenum" required [(ngModel)]="model.casenum" name="casenum" #casenum="ngModel">
+        <div [hidden]="casenum.valid" class="alert alert-danger">
+        </div>
+      </div>
+      <button type="submit" class="btn bnt-success" [disabled]="!casenumForm.form.valid" (click)="triggerEscPol(casenum.value); casenum.value=''">Escalate</button>
+    </form>
+  </div>
+</div>

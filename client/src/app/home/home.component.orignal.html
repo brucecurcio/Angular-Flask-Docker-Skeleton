@@ -1,0 +1,17 @@
+<div class="container color-dark">
+</div>
+<div class="container color-light">
+  <div class="col">
+    <form>
+      <label> Case Number:
+        <input #caseNum />
+      </label>
+      <!--  <button (click)="getEscPol(); caseNum.value=''">
+        get policy
+      </button>-->
+      <button (click)="triggerEscPol(caseNum.value); caseNum.value=''">
+        escalation
+      </button>
+    </form>
+  </div>
+</div>

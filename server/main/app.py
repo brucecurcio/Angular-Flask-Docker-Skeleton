@@ -8,42 +8,14 @@ import re
 app = Flask(__name__) #instantiate flask app
 api = Api(app) #instantiate api
 
-"""
-class TheLanguage(object):
-    def __init__(self, language, framework):
-        self.language = language
-        self.framework = framework
-
-    def __repr__(self):
-        return '{} is the language. {} is the framework.'.format(self.language, self.framework)
-
-class LanguageSchema(Schema):
-    language = ma_fields.String()
-    framework = ma_fields.String()
-
-    @post_load
-    def create_language(self, data):
-        return TheLanguage(**data)
-
-#this is duplicated to ensure swagger picks up data correctly. Duplicates info in LanguageSchema
-a_language = api.model('Language', {'language': fields.String('The language'), 'framework': fields.String('The Framework')}) #, 'id': fields.Integer('ID')})
+# get API key from local text file
+with open("API_Key.txt", "r") as mykey:
+    API_KEY = mykey.read()
 
 
-languages = []
-#python = {'language': 'Python', 'id': 1}
-python = TheLanguage(language='Python', framework='Flask')
-languages.append(python)
-"""
-
-@api.route('/test')
-class Test(Resource):
-    def get(self):
-        return requests.get('http://api.openweathermap.org/data/2.5/weather?q=Portland,us&appid=6d48c4262115fcf9f8a9d608fbe4288b').json()
-
-@api.route('/field_escalate')
+@api.route('/escalation_policies')
 class Field_Escalate(Resource):
     def get(self):
-        API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
         url = 'https://api.pagerduty.com/escalation_policies'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
@@ -55,7 +27,6 @@ class Field_Escalate(Resource):
 @api.route('/services')
 class Field_Escalate(Resource):
     def get(self):
-        API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
         url = 'https://api.pagerduty.com/services'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
@@ -64,10 +35,9 @@ class Field_Escalate(Resource):
         r = requests.get(url, headers=headers)
         return r.json()
 
-@api.route('/esc_trigger/<casenum>')
+@api.route('/esc_trigger/<casenum>/<summary>')
 class Esc_Trigger(Resource):
-    def post(self, casenum):
-        API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
+    def post(self, casenum, summary):
         FROM = 'TSE@IB.COM'
 
         if re.match("[0-9][0-9][0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9][0-9][0-9]", casenum):
@@ -87,17 +57,17 @@ class Esc_Trigger(Resource):
         payload = {
             "incident": {
                 "type": "incident",
-                "title": "This is a field escalation.  The case number is:" + caseNum,
+                "title": "Case: " + caseNum + ", " + summary, 
                 "service": {
-                    "id": "PVGDAR3",
+                    "id": "PD8LF40",
                     "type": "service_reference"
                 },
                 "escalation_policy": {
                     "id": "PLW05MG",
                     "type": "escalation_policy_reference"
                 }
-            }
-        }
+            } 
+        } 
 
         r = requests.post(url, headers=headers, data=json.dumps(payload))
         return r.json()
