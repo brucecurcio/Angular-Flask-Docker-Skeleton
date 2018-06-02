@@ -14,7 +14,7 @@ with open("API_Key.txt", "r") as mykey:
 
 
 @api.route('/escalation_policies')
-class Field_Escalate(Resource):
+class Escalation_Policies(Resource):
     def get(self):
         url = 'https://api.pagerduty.com/escalation_policies'
         headers = {
@@ -25,7 +25,7 @@ class Field_Escalate(Resource):
         return r.json()
 
 @api.route('/services')
-class Field_Escalate(Resource):
+class Services(Resource):
     def get(self):
         url = 'https://api.pagerduty.com/services'
         headers = {
