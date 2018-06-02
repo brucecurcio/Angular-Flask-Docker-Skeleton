@@ -15,7 +15,10 @@ class Escalation_Policies(Resource):
         # get API key from local text file
         with open("API_Key.txt", "r") as mykey:
             API_KEY = mykey.read()
+        mykey.close()
 
+        pprint(API_KEY)
+        
         url = 'https://api.pagerduty.com/escalation_policies'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
@@ -31,6 +34,7 @@ class Services(Resource):
         # get API key from local text file
         with open("API_Key.txt", "r") as mykey:
             API_KEY = mykey.read()
+        mykey.close()
 
         url = 'https://api.pagerduty.com/services'
         headers = {
@@ -53,6 +57,7 @@ class Esc_Trigger(Resource):
         # get API key from local text file
         with open("API_Key.txt", "r") as mykey:
             API_KEY = mykey.read()
+        mykey.close()
 
         url = 'https://api.pagerduty.com/incidents'
         headers = {
