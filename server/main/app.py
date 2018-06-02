@@ -8,14 +8,19 @@ import re
 app = Flask(__name__) #instantiate flask app
 api = Api(app) #instantiate api
 
+# get API key from local text file
+with open("API_Key.txt", "r") as mykey:
+    API_KEY = mykey.read()
+mykey.close()
+
 @api.route('/escalation_policies')
 class Escalation_Policies(Resource):
     def get(self):
 
         # get API key from local text file
-        with open("API_Key.txt", "r") as mykey:
-            API_KEY = mykey.read()
-        mykey.close()
+        #with open("API_Key.txt", "r") as mykey:
+        #    API_KEY = mykey.read()
+        #ykey.close()
 
         print(API_KEY)
 
@@ -32,9 +37,9 @@ class Services(Resource):
     def get(self):
         
         # get API key from local text file
-        with open("API_Key.txt", "r") as mykey:
-            API_KEY = mykey.read()
-        mykey.close()
+        #with open("API_Key.txt", "r") as mykey:
+        #    API_KEY = mykey.read()
+        #mykey.close()
 
         url = 'https://api.pagerduty.com/services'
         headers = {
@@ -55,9 +60,9 @@ class Esc_Trigger(Resource):
             caseNum = "000000-000000" 
 
         # get API key from local text file
-        with open("API_Key.txt", "r") as mykey:
-            API_KEY = mykey.read()
-        mykey.close()
+        #with open("API_Key.txt", "r") as mykey:
+        #    API_KEY = mykey.read()
+        #mykey.close()
 
         url = 'https://api.pagerduty.com/incidents'
         headers = {
