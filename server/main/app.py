@@ -27,7 +27,7 @@ class Escalation_Policies(Resource):
         url = 'https://api.pagerduty.com/escalation_policies'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
-            'Authorization': 'Token token={token}'.format(token=API_KEY)
+            'Authorization': 'Token token={token}'.format(token=API_KEY.rstrip('\n'))
         }
         r = requests.get(url, headers=headers)
         return r.json()
