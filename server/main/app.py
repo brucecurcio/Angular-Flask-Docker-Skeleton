@@ -8,10 +8,14 @@ import re
 app = Flask(__name__) #instantiate flask app
 api = Api(app) #instantiate api
 
+# get API key from local text file
+with open("API_Key.txt", "r") as mykey:
+    API_KEY = mykey.read()
+
+
 @api.route('/escalation_policies')
 class Field_Escalate(Resource):
     def get(self):
-        API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
         url = 'https://api.pagerduty.com/escalation_policies'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
@@ -23,7 +27,6 @@ class Field_Escalate(Resource):
 @api.route('/services')
 class Field_Escalate(Resource):
     def get(self):
-        API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
         url = 'https://api.pagerduty.com/services'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
@@ -35,7 +38,6 @@ class Field_Escalate(Resource):
 @api.route('/esc_trigger/<casenum>/<summary>')
 class Esc_Trigger(Resource):
     def post(self, casenum, summary):
-        API_KEY = 'YCWYWbvpsKUzFtuxxTE2'
         FROM = 'TSE@IB.COM'
 
         if re.match("[0-9][0-9][0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9][0-9][0-9]", casenum):
