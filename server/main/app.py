@@ -17,13 +17,6 @@ mykey.close()
 class Escalation_Policies(Resource):
     def get(self):
 
-        # get API key from local text file
-        #with open("API_Key.txt", "r") as mykey:
-        #    API_KEY = mykey.read()
-        #ykey.close()
-
-        print(API_KEY)
-
         url = 'https://api.pagerduty.com/escalation_policies'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
@@ -36,15 +29,10 @@ class Escalation_Policies(Resource):
 class Services(Resource):
     def get(self):
         
-        # get API key from local text file
-        #with open("API_Key.txt", "r") as mykey:
-        #    API_KEY = mykey.read()
-        #mykey.close()
-
         url = 'https://api.pagerduty.com/services'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
-            'Authorization': 'Token token={token}'.format(token=API_KEY)
+            'Authorization': 'Token token={token}'.format(token=API_KEY.rstrip('\n'))
         }
         r = requests.get(url, headers=headers)
         return r.json()
@@ -59,16 +47,11 @@ class Esc_Trigger(Resource):
         else:
             caseNum = "000000-000000" 
 
-        # get API key from local text file
-        #with open("API_Key.txt", "r") as mykey:
-        #    API_KEY = mykey.read()
-        #mykey.close()
-
         url = 'https://api.pagerduty.com/incidents'
         headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/vnd.pagerduty+json;version=2',
-        'Authorization': 'Token token={token}'.format(token=API_KEY),
+        'Authorization': 'Token token={token}'.format(token=API_KEY.rstrip('\n')),
         'From': FROM
         }
 
