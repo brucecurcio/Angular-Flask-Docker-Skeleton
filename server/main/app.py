@@ -17,8 +17,8 @@ class Escalation_Policies(Resource):
             API_KEY = mykey.read()
         mykey.close()
 
-        pprint(API_KEY)
-        
+        print(API_KEY)
+
         url = 'https://api.pagerduty.com/escalation_policies'
         headers = {
             'Accept': 'application/vnd.pagerduty+json;version=2',
