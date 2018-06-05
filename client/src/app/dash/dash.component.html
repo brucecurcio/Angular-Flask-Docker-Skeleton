@@ -2,40 +2,57 @@
   <h1 class="mat-h1"></h1>
   <mat-grid-list cols="3" rowHeight="350px">
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title class="boldText">
-            Field Escalation
-          </mat-card-title>
+      <mat-card class="dashboard-card">     
+        <mat-card-header class="headerBox">
+            <mat-card-title style="color:White;">
+              Field Escalation
+            </mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <div class=a>
-              <input matInput placeholder="Case Number" #caseNum>
+            <input matInput placeholder="Case Number" class=inputBox #caseNum>
           </div>
-          <div class=a>
-            <textarea matInput rows="7" placeholder="Brief Summary" #summary></textarea>
+          <div class=c>
+            <input matInput placeholder="Summary" class=inputBoxLong #summary>
             <app-message></app-message>
           </div>
           <div class=b>
-            <button mat-raised-button (click)="triggerEscPol(caseNum.value, summary.value); caseNum.value=''; summary.value=''">Escalate</button>                
+            <button mat-raised-button class="esc-button" (click)="triggerEscPol(caseNum.value, summary.value); caseNum.value=''; summary.value=''">Escalate</button>                
           </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="2" [rowspan]="1">
       <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title class="boldText">
-            QM/SL/Standby Schedule
+        <mat-card-header class="headerBox">
+          <mat-card-title style="color:White;">
+            QM/SL/STBY Schedule
           </mat-card-title>
         </mat-card-header>
         <img mat-card-image src="assets/Monet manager view1.png">
       </mat-card>
     </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">     
+          <mat-card-header class="headerBox">
+              <mat-card-title style="color:White;">
+                Dropping QM
+              </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class=c>
+              <input matInput placeholder="Brief Reason" class=inputBox #reason>
+            </div>
+            <div class=d>
+              <button mat-raised-button class="QM-button">DropQM</button>                
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title class="boldText">
+        <mat-card-header class="headerBox">
+          <mat-card-title style="color:White; padding: 5px;">
             {{card.title}}
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
@@ -47,9 +64,6 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>
-            coming soon
-          </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

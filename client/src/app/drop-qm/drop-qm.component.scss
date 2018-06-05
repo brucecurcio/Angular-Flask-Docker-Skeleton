@@ -1,0 +1,85 @@
+.grid-container {
+    margin: 20px;
+  }
+  
+  .dashboard-card {
+    position: absolute;
+    width: 50%;
+    border-style: none;
+    /*  background: #0000001e; */
+  }
+  .headerBox {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-weight:bold;
+    background-color:#3F51B5;
+    margin-left: -24px;
+    margin-right: -24px;
+    justify-content: center;
+  }
+  
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  .esc-button {
+    border-style: solid;
+    color: red;
+  }
+  .QM-button {
+    border-style: solid;
+    color: rgb(255, 174, 0);
+  }
+  .dashboard-card-content {
+    text-align: left;
+    
+  }
+  
+  div.a {
+    margin-top: 40px;
+    padding: 1em;
+  }
+  
+  div.b {
+    padding: 2em;
+    text-align:center;
+  }
+  
+  div.c {
+    padding: 1em;
+  }
+  div.c {
+    margin-top: 60px;
+    padding: 1em;
+  }
+  
+  div.d {
+    padding: 3em;
+    text-align:center;
+  }
+  
+  .inputBox {
+    width: 50%;
+    border-style: none;
+    border-bottom-style: solid;
+    border-color: lightgrey;
+  }
+  .inputBoxLong {
+    width: 100%;
+    border-style: none;
+    border-bottom-style: solid;
+    border-color: lightgrey;
+  }
+  .card-img-top {
+    object-fit: contain;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  .example-full-width {
+    width: 100%;
+  }

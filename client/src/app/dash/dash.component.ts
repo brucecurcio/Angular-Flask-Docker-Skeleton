@@ -15,8 +15,6 @@ export class DashComponent implements OnInit {
   ngOnInit() {}
 
   cards = [
-    { title: 'QM/SL/STBY Schedule', cols: 2, rows: 1 },
-    { title: 'Drop QM, notify SL button', cols: 1, rows: 1 },
     { title: 'TBD', cols: 2, rows: 1 }
   ];
 

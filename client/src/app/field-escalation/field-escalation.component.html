@@ -1,3 +1,26 @@
-<p>
-  field-escalation works!
-</p>
+<div class="grid-container">
+  <h1 class="mat-h1"></h1>
+  <mat-grid-list cols="1" rowHeight="350px">
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <mat-card class="dashboard-card">     
+        <mat-card-header class="headerBox">
+          <mat-card-title style="color:White;">
+            Field Escalation
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class=a>
+            <input matInput placeholder="Case Number" class=inputBox #caseNum>
+          </div>
+          <div class=c>
+            <input matInput placeholder="Summary" class=inputBoxLong #summary>
+            <app-message></app-message>
+          </div>
+          <div class=b>
+            <button mat-raised-button class="esc-button" (click)="triggerEscPol(caseNum.value, summary.value); caseNum.value=''; summary.value=''">Escalate</button>                
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

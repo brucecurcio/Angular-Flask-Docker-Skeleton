@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-drop-qm',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropQMComponent implements OnInit {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit() {
   }
-
+  private log(message: string) {
+    this.messageService.add('ERROR: ' + message);
+  }
 }

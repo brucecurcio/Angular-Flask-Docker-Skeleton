@@ -1,3 +1,22 @@
-<p>
-  drop-qm works!
-</p>
+<div class="grid-container">
+    <h1 class="mat-h1"></h1>
+    <mat-grid-list cols="1" rowHeight="350px">
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+          <mat-card class="dashboard-card">     
+            <mat-card-header class="headerBox">
+                <mat-card-title style="color:White;">
+                  Dropping QM
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class=c>
+                <input matInput placeholder="Brief Reason" class=inputBox #reason>
+              </div>
+              <div class=d>
+                <button mat-raised-button class="QM-button">DropQM</button>                
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+  </div>
