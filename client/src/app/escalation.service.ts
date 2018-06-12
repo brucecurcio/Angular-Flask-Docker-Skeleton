@@ -27,9 +27,9 @@ export class EscalationService {
     );
   }
   
-  triggerEscPol (casenum: string, summary: string) {
-    let url: string  = this.apiUrl + "escalationtrigger/" + casenum + "/" + summary;
-    return this.http.post(url, httpOptions)
+  triggerEscPol (caseNum: string, Summary: string) {
+    let url: string  = this.apiUrl + "escalationtrigger/";
+    return this.http.post(url, {"casenum":caseNum, "summary":Summary}, httpOptions)
     .pipe(
       tap(data => this.log('Escalation Successful')),
       catchError(this.handleError('Escalation Failed, please try again.', []))
