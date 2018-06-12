@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class EscalationService {
 
-  private apiUrl = 'http://104.236.235.98/api/'; 
+  private apiUrl = 'https://hnar3j45s9.execute-api.us-east-1.amazonaws.com/Prod/'; 
 
   constructor(
     private http: HttpClient,
@@ -19,7 +19,7 @@ export class EscalationService {
 
   /** GET: get escalation policy information */
   getEscPol () {
-    let url: string = this.apiUrl + "field_escalate/";
+    let url: string = this.apiUrl + "escalationpolicies/";
     return this.http.get(url)
     .pipe(
       tap(data => this.log('fetched escalation policy')),
@@ -28,7 +28,7 @@ export class EscalationService {
   }
   
   triggerEscPol (casenum: string, summary: string) {
-    let url: string  = this.apiUrl + "esc_trigger/" + casenum + "/" + summary;
+    let url: string  = this.apiUrl + "escalationtrigger/" + casenum + "/" + summary;
     return this.http.post(url, httpOptions)
     .pipe(
       tap(data => this.log('Escalation Successful')),

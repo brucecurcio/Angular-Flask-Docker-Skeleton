@@ -37,8 +37,8 @@ http {
       }
 
       location /api/ {
-          proxy_pass     https://hnar3j45s9.execute-api.us-east-1.amazonaws.com/Prod/;
-          proxy_set_header     Host $host;
+              proxy_pass          http://flask_demo:5000/;
+            proxy_set_header        Host $host;
       }
-    }
+	}
 }

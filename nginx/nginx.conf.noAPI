@@ -36,9 +36,5 @@ http {
           try_files $uri$args $uri$args/ $uri $uri/ /index.html =404;
       }
 
-      location /api/ {
-          proxy_pass     https://hnar3j45s9.execute-api.us-east-1.amazonaws.com/Prod/;
-          proxy_set_header     Host $host;
-      }
-    }
+	}
 }

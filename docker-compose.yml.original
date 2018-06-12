@@ -18,4 +18,16 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    depends_on:
+      - flask_demo
+
+  flask_demo:
+    container_name: flask_demo_container
+    restart: always
+    image: flask
+    build: ./server
+    volumes:
+    - ./server/main:/usr/src/app
+    ports:
+      - "5000:5000"
 
